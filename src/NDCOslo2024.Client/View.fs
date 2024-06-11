@@ -27,14 +27,19 @@ let AppView () =
         Html.div [
             Html.a("Home", Page.Index)
             Html.span " | "
-            Html.a("About", Page.About)
+            Html.a("Fable Example", Page.FableExample)
         ]
     let render =
         match state.Page with
         | Page.Index -> Pages.Index.IndexView ()
-        | Page.About -> Html.text "SAFEr Template"
+        | Page.FableExample -> Pages.FableExample.FableExampleView ()
     React.router [
         router.pathMode
         router.onUrlChanged (Page.parseFromUrlSegments >> UrlChanged >> dispatch)
-        router.children [ navigation; render ]
+        router.children [
+            Html.divClassed "h-screen" [
+                navigation
+                render
+            ]
+        ]
     ]

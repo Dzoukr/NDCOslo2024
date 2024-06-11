@@ -6,14 +6,14 @@ open Fable.Core.JsInterop
 
 type Page =
     | Index
-    | About
+    | FableExample
 
 [<RequireQualifiedAccess>]
 module Page =
     let defaultPage = Page.Index
 
     let parseFromUrlSegments = function
-        | [ "about" ] -> Page.About
+        | [ "fable-example" ] -> Page.FableExample
         | [ ] -> Page.Index
         | _ -> defaultPage
 
@@ -21,7 +21,7 @@ module Page =
 
     let toUrlSegments = function
         | Page.Index -> [ ] |> noQueryString
-        | Page.About -> [ "about" ] |> noQueryString
+        | Page.FableExample -> [ "fable-example" ] |> noQueryString
 
 [<RequireQualifiedAccess>]
 module Router =

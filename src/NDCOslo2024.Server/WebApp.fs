@@ -9,7 +9,7 @@ open NDCOslo2024.Shared.API
 open NDCOslo2024.Shared.Errors
 
 let service = {
-    GetDefinition = fun _ -> NDCOslo2024.Server.Definition1.configuration1 |> async.Return
+    GetDefinition = fun _ -> NDCOslo2024.Server.Definition1.definition |> async.Return
 }
 
 let webApp : HttpHandler =

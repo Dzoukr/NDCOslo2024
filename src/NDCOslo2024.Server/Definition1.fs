@@ -48,7 +48,7 @@ let sideRight =
     }
 
 
-let configuration1 =
+let definition =
     definition {
         width (Px 1920)
         height (Px 1080)
@@ -58,14 +58,12 @@ let configuration1 =
             Px 280
         ]
         rows [
-            Px 64
             Px 184
             Px 752
             Auto
         ]
         layout [
             "header header header"
-            "sndRow sndRow sndRow"
             "sideLeft main sideRight"
             "footer footer footer"
         ]
