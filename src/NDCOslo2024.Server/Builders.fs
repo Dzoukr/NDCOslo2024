@@ -113,10 +113,18 @@ type AreaBuilder() =
     member this.Yield _ = {
         Name = ""
         Panels = [||]
+        Direction = AreaDirection.Column
+        BackgroundColor = ""
     }
 
     [<CustomOperation("name")>]
     member this.Name (state: Area, value) = { state with Name = value }
+
+    [<CustomOperation("direction")>]
+    member this.Direction (state: Area, value) = { state with Direction = value }
+
+    [<CustomOperation("backgroundColor")>]
+    member this.backgroundColor (state: Area, value) = { state with BackgroundColor = value }
 
     [<CustomOperation("panel")>]
     member this.Panel (state: Area, value: Panel) = {

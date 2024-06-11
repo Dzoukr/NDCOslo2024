@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
+        <Compile Include="Renderers.fs" />
         <Compile Include="Server.fs" />
         <Compile Include="Router.fs" />
         <Compile Include="Extensions.fs" />

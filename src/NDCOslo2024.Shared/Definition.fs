@@ -42,6 +42,8 @@ type Panel =
 type Area = {
     Name: string
     Panels: Panel[]
+    Direction: AreaDirection
+    BackgroundColor: string
 }
 
 type Definition = {

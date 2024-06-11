@@ -3,63 +3,47 @@
 open NDCOslo2024.Shared.Definition
 open NDCOslo2024.Server.Builders
 
-let header =
+let private header =
     area {
         name "header"
+        direction AreaDirection.Row
+        backgroundColor "pink"
         panels [
-            placeholderPanel {
-                width (Px 4)
-                height (Px 64)
-                backgroundColor "#D72622"
-            }
-            placeholderPanel {
-                width (Px 4)
-                height (Px 64)
-                backgroundColor "#D72622"
-            }
+
         ]
     }
 
-let main =
+let private main =
     area {
         name "main"
+        backgroundColor "blue"
         panels [
-            placeholderPanel {
-                width (Px 100)
-                height (Px 100)
-                backgroundColor "pink"
-            }
+
         ]
     }
 
-let sideRight =
+let private sideRight =
     area {
         name "sideRight"
+        backgroundColor "fuchsia"
         panels [
-            callQueuePanel {
-                maxCalls 8
-            }
-            placeholderPanel {
-                width (Px 100)
-                height (Px 100)
-                backgroundColor "yellow"
-            }
+
         ]
     }
 
 
-let definition =
+let noPanels =
     definition {
-        width (Px 1920)
-        height (Px 1080)
+        width (Px 800)
+        height (Px 600)
         columns [
-            Px 188
-            Px 1444
-            Px 280
+            Px 200
+            Px 400
+            Px 200
         ]
         rows [
-            Px 184
-            Px 752
+            Px 100
+            Px 400
             Auto
         ]
         layout [

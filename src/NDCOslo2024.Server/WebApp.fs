@@ -6,10 +6,9 @@ open Fable.Remoting.Server
 open Fable.Remoting.Giraffe
 open Microsoft.Extensions.Logging
 open NDCOslo2024.Shared.API
-open NDCOslo2024.Shared.Errors
 
 let service = {
-    GetDefinition = fun _ -> NDCOslo2024.Server.Definition1.definition |> async.Return
+    GetDefinition = fun _ -> Definition1.noPanels |> async.Return
 }
 
 let webApp : HttpHandler =

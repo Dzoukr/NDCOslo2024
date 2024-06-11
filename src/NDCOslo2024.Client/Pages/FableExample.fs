@@ -4,9 +4,10 @@ open Feliz
 open Fable.React
 open Feliz.DaisyUI
 
-[<ReactComponent>]
-let private QrCode(code:string) =
-    ofImport "QRCode" "react-qr-code" {| value = code  |} []
+/// https://github.com/rosskhanas/react-qr-code
+// [<ReactComponent>]
+// let private QrCode(code:string) =
+//     ofImport "QRCode" "react-qr-code" {| value = code  |} []
 
 [<ReactComponent>]
 let FableExampleView () =
@@ -22,9 +23,6 @@ let FableExampleView () =
                 input.bordered
                 prop.onTextChange (fun x -> x |> setUrl)
             ]
-
-            QrCode url
-
+            // QrCode url
         ]
-
     ]

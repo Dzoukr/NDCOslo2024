@@ -4,6 +4,7 @@ open Feliz
 open Feliz.DaisyUI
 open Elmish
 open NDCOslo2024.Client.Server
+open NDCOslo2024.Client.Renderers
 open Feliz.UseElmish
 open NDCOslo2024.Shared.Definition
 
@@ -21,13 +22,13 @@ let private update (msg:Msg) (state:State) : State * Cmd<Msg> =
     match msg with
     | LoadDefinition -> state, Cmd.OfAsync.eitherAsResult (fun _ -> service.GetDefinition()) DefinitionLoaded
     | DefinitionLoaded (Ok def) -> { state with Definition = Some def }, Cmd.none
+    | DefinitionLoaded (Error _) -> state, Cmd.none
+
 
 [<ReactComponent>]
 let IndexView () =
     let state, dispatch = React.useElmish(init, update, [| |])
 
-    React.fragment [
-        Html.div (string state.Definition)
-
-    ]
-
+    state.Definition
+    |> Option.map RenderDefinition
+    |> Option.defaultValue (Html.div "Loading...")
