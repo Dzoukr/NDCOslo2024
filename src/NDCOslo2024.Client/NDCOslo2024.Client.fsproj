@@ -10,6 +10,7 @@
         <Compile Include="Extensions.fs" />
         <Compile Include="Pages\Index.fs" />
         <Compile Include="Pages\FableExample.fs" />
+        <Compile Include="Pages\ElmishExample.fs" />
         <Compile Include="View.fs" />
         <Compile Include="App.fs" />
     </ItemGroup>

@@ -7,6 +7,7 @@ open Fable.Core.JsInterop
 type Page =
     | Index
     | FableExample
+    | ElmishExample
 
 [<RequireQualifiedAccess>]
 module Page =
@@ -14,6 +15,7 @@ module Page =
 
     let parseFromUrlSegments = function
         | [ "fable-example" ] -> Page.FableExample
+        | [ "elmish-example" ] -> Page.ElmishExample
         | [ ] -> Page.Index
         | _ -> defaultPage
 
@@ -22,6 +24,7 @@ module Page =
     let toUrlSegments = function
         | Page.Index -> [ ] |> noQueryString
         | Page.FableExample -> [ "fable-example" ] |> noQueryString
+        | Page.ElmishExample -> [ "elmish-example" ] |> noQueryString
 
 [<RequireQualifiedAccess>]
 module Router =

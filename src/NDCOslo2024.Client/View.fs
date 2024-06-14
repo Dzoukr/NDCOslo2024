@@ -28,11 +28,14 @@ let AppView () =
             Html.a("Home", Page.Index)
             Html.span " | "
             Html.a("Fable Example", Page.FableExample)
+            Html.span " | "
+            Html.a("Elmish Example", Page.ElmishExample)
         ]
     let render =
         match state.Page with
         | Page.Index -> Pages.Index.IndexView ()
         | Page.FableExample -> Pages.FableExample.FableExampleView ()
+        | Page.ElmishExample -> Pages.ElmishExample.ElmishExampleView ()
     React.router [
         router.pathMode
         router.onUrlChanged (Page.parseFromUrlSegments >> UrlChanged >> dispatch)
