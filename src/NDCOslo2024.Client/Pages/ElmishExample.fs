@@ -3,10 +3,7 @@
 open Feliz
 open Feliz.DaisyUI
 open Elmish
-open NDCOslo2024.Client.Server
-open NDCOslo2024.Client.Renderers
 open Feliz.UseElmish
-open NDCOslo2024.Shared.Definition
 
 type private State = {
     Count : int
@@ -25,10 +22,11 @@ let private update (msg:Msg) (state:State) : State * Cmd<Msg> =
     | Decrease -> { state with Count = state.Count - 1 }, Cmd.none
 
 [<ReactComponent>]
-let ElmishExampleView () =
+let private ElmishPowered() =
     let state, dispatch = React.useElmish(init, update, [| |])
 
     Html.div [
+        Html.h1 [ prop.className "text-3xl"; prop.text "useElmish" ]
         Daisy.button.div [
             prop.text "Increase"
             prop.onClick (fun _ -> Increase |> dispatch)
@@ -41,5 +39,35 @@ let ElmishExampleView () =
         Html.div [
             prop.className "p-4 text-5xl"
             prop.text state.Count
+        ]
+    ]
+
+let private UseStatePowered() =
+    let value,setValue = React.useState(0)
+    Html.div [
+        Html.h1 [ prop.className "text-3xl"; prop.text "useState" ]
+
+        Daisy.button.div [
+            prop.text "Increase"
+            prop.onClick (fun _ -> value + 1 |> setValue)
+
+        ]
+        Daisy.button.div [
+            prop.text "Decrease"
+            prop.onClick (fun _ -> value - 1 |> setValue)
+        ]
+        Html.div [
+            prop.className "p-4 text-5xl"
+            prop.text value
+        ]
+    ]
+
+[<ReactComponent>]
+let ElmishExampleView () =
+    Html.div [
+        prop.className "p-8 flex flex-col gap-8"
+        prop.children [
+            UseStatePowered()
+            ElmishPowered()
         ]
     ]

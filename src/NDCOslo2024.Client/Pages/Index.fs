@@ -1,7 +1,6 @@
 ﻿module NDCOslo2024.Client.Pages.Index
 
 open Feliz
-open Feliz.DaisyUI
 open Elmish
 open NDCOslo2024.Client.Server
 open NDCOslo2024.Client.Renderers
